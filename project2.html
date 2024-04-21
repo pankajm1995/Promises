@@ -24,7 +24,7 @@
         console.log(data);
         let cardlist=data.map((el,i)=>SingalCard(el.image,el.title,el.price,el.description,el.category))
 
-        document.getElementById("container").innerHTML=cardlist.json("")
+        document.getElementById("container").innerHTML=cardlist
 
     }
 
@@ -34,9 +34,9 @@
         <div>
             <img src=${image}>
             <h2>title:${title}</h2>
-            <h2>price:${price}</h2>
-            <h2>Des:${description}</h2>
-            <h2>Cate:${category}</h2>
+            <p>price:${price}</p>
+            <p>Des:${description}</p>
+            <p>Cate:${category}</p>
             </div>
         `
         return card

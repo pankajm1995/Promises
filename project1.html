@@ -23,13 +23,13 @@
     function CardList(data)
     {
         console.log(data);
-       var cardlist=data.map((el,i)=>Singallist(el.avatar,el.email,el.first_name,el.last_name))
+       let cardlist=data.map((el,i)=>Singallist(el.avatar,el.email,el.first_name,el.last_name))
 
-        document.getElementById("show").innerHTML=cardlist.json("")
+        document.getElementById("show").innerHTML=cardlist
     }
     function Singallist(avatar,email,first_name,last_name)
     {
-        let card=`<div style="border: 2px solid black margin:"auto"">
+        let card=`<div>
             <img src:${avatar}/>
             <h2>Email:${email}</h2>
             <h2>FirstName:${first_name}</h2>
