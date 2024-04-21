@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="container"></div>
+</body>
+</html>
+<script>
+    function fetchData()
+    {
+        fetch("https://fakestoreapi.com/products")
+        .then((response)=>response.json())
+        .then((data)=>CardList(data))
+        .catch((err)=>console.log(err));
+    }
+    fetchData()
+
+    function CardList(data){
+        console.log(data);
+        let cardlist=data.map((el,i)=>SingalCard(el.image,el.title,el.price,el.description,el.category))
+
+        document.getElementById("container").innerHTML=cardlist.json("")
+
+    }
+
+    function SingalCard(title,price,description,category,image)
+    {
+        let card= `
+        <div>
+            <img src=${image}>
+            <h2>title:${title}</h2>
+            <h2>price:${price}</h2>
+            <h2>Des:${description}</h2>
+            <h2>Cate:${category}</h2>
+            </div>
+        `
+        return card
+    }
+    
+        
+    
+</script>
