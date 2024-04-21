@@ -3,19 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <title>Document</title>
 </head>
 <body>
-    <div id="data"></div>
+    <div id="show"></div>
 </body>
 </html>
 <script>
-    function setdata()
+    function Fetchdata()
     {
         fetch("https://reqres.in/api/users?page=2")
         .then((res)=>res.json())
-        .then((json)=>console.log(json))
-        .catch((err)=>console.log(err))
+        .then((data)=>CardList(data))
+        .then((err)=>console.log(err))
     }
-    setdata()
+    Fetchdata()
+
+    function CardList(data)
+    {
+        console.log(data);
+       var cardlist=data.map((el,i)=>Singallist(el.avatar,el.email,el.first_name,el.last_name))
+
+        document.getElementById("show").innerHTML=cardlist.json("")
+    }
+    function Singallist(avatar,email,first_name,last_name)
+    {
+        let card=`<div style="border: 2px solid black margin:"auto"">
+            <img src:${avatar}/>
+            <h2>Email:${email}</h2>
+            <h2>FirstName:${first_name}</h2>
+            <h2>LastName:${last_name}</h2>
+            </div>  
+        `
+        return card
+    }
 </script>
