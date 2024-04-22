@@ -15,7 +15,7 @@
     {
         fetch("https://reqres.in/api/users?page=2")
         .then((res)=>res.json())
-        .then((data)=>CardList(data))
+        .then((data)=>CardList(data.data))
         .then((err)=>console.log(err))
     }
     Fetchdata()
@@ -23,9 +23,8 @@
     function CardList(data)
     {
         console.log(data);
-       let cardlist=data.map((el,i)=>Singallist(el.avatar,el.email,el.first_name,el.last_name))
-
-        document.getElementById("show").innerHTML=cardlist
+        let cardlist=data.map((el,i)=>Singallist(el.avatar,el.email,el.price,el.first_name,el.last_name))
+        document.getElementById("show").innerHTML=cardlist.json('')
     }
     function Singallist(avatar,email,first_name,last_name)
     {
